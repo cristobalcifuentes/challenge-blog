@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<link rel="stylesheet" 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<meta charset="ISO-8859-1">
+<title>DETALLE</title>
+</head>
+<body>
+	<nav class="navbar navbar-dark bg-dark">
+
+		<a class="btn btn-outline-primary" href="/index"> index</a> 
+		<a class="btn btn-outline-primary" href="/nuevo-post">crear post</a>
+
+	</nav>
+
+
+<h1 class="text-center">DETALLE</h1>
+
+
+<div class="card text-center">
+<div class="card-header">
+<h3 th:text="${post.title}"> </h3> 
+</div>
+<div class="card-body">
+<h5 th:text="${post.categorie.categories}"> </h5>
+<h5 th:text="${post.date}"> </h5>
+<p th:text="${post.content}"> </p>
+</div>
+</div>
+</body>
+</html>

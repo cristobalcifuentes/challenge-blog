@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<link rel="stylesheet" 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<meta charset="UTF-8" />
+<title>HOME</title>
+</head>
+<body>
+	<nav class="navbar navbar-dark bg-dark">
+
+		<a class="btn btn-outline-primary" href="/index"> index</a> 
+		<a class="btn btn-outline-primary" href="/nuevo-post">crear post</a>
+
+	</nav>
+
+	<h1 class="text-center">HOME</h1>
+
+
+
+		<table class="table">
+		<tr>
+		<th colspan="2" > titulo</th>
+		<th colspan="2">categoria </th>
+		<th> </th>
+		<th> </th>
+		<th> </th>
+		</tr>
+		<tr th:each="posts : ${posts}">
+		<td colspan="2" th:text="${posts.title}"> </td>
+		<td colspan="2" th:text="${posts.categorie.categories}"> </td>
+		<td><a class="btn btn-primary" th:href="@{'/detalle/' + ${posts.id}}">   detalle   </a></td>
+		<td><a class="btn btn-primary" th:href="@{'/editar/' + ${posts.id}}">   editar   </a></td>
+		<td><a class="btn btn-danger" th:href="@{'/eliminar/' + ${posts.id}}" onclick="return confirm('¿desea eliminar post?');">   eliminar   </a></td>
+		
+		</tr>
+
+		</table>
+
+
+
+
+
+</body>
+</html>

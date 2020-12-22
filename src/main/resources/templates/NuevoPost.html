@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<link rel="stylesheet" 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<meta charset="ISO-8859-1">
+<title>FORMULARIO POST</title>
+</head>
+<body>
+	<nav class="navbar navbar-dark bg-dark">
+
+		<a class="btn btn-outline-primary" href="/index"> index</a> 
+		<a class="btn btn-outline-primary" href="/nuevo-post">crear post</a>
+
+	</nav>
+
+	 <h1 class="text-center" th:if="${post.id == 0}">NUEVO POST</h1>
+    <h1 class="text-center" th:if="${post.id != 0}">EDITAR POST</h1>
+
+	<form th:action="@{/posts}" method="post">
+
+		<input th:field="*{post.id}" type="hidden"> <label>titulo</label>
+		<input th:field="*{post.title}" name="title" id="title"> <br>
+		<br> <label>contenido</label> <input th:field="*{post.content}"
+			name="content" id="content"> <br> <br> <label>categoria</label>
+
+		<select th:field="*{post.categorie}" name="categorie" id="categorie">
+			<option th:each="categories : ${categories}"
+				th:value="${categories.id}" th:text="${categories.categories}"></option>
+		</select> <input type="submit">
+
+	</form>
+
+
+
+
+</body>
+</html>
